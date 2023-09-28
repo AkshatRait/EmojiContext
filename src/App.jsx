@@ -7,10 +7,11 @@ function App() {
 
 
   return (
-    <>
-      <ComplimentButton />
+    <div id="container">
+      <h1>Mood</h1>
       <Emojis />
-    </>
+      <ComplimentButton />
+    </div>
   )
 }
 

@@ -1,16 +1,22 @@
 import React, { useContext } from 'react'
 import { mainContext } from '../../Context/MainProvider'
+import "./index.css"
 
 const ComplimentButton = () => {
-    const { setCompliments } = useContext(mainContext)
-    const  handleClick = () =>{
-        setCompliments + 1;
+    const {setCurrentMood, compliments,setCompliments } = useContext(mainContext);
+
+  
+    if(compliments < 5){
+        setCurrentMood('sad');
+    }else if(compliments < 6){
+        setCurrentMood('fine')
+    }else if(compliments > 10 ){
+        setCurrentMood('happy')
     }
   return (
-    <div>
-        <h1>Moods</h1>
-    <button onClick={handleClick()}>Compliment</button>
-    <button>Bully</button>
+    <div className='button-container'>    
+    <button onClick={()=>setCompliments(compliments+1)}>Compliment</button>
+    <button onClick={()=>setCompliments(compliments-1)}>Bully</button>
     </div>
   )
 }

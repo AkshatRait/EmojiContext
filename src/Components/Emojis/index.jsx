@@ -1,15 +1,16 @@
 import React, { useContext } from 'react'
 import { mainContext } from '../../Context/MainProvider'
+import "./index.css"
 
 const Emojis = () => {
-    const { mood , compliments } = useContext(mainContext);
+    const { currentMood , compliments } = useContext(mainContext);
 
-    if(mood === 'happy'){
-        return '😛'
-    }else if(mood === 'sad'){
-        return '😒'
-    }else{
-        return '🙄'
+    if(currentMood === 'happy'){
+        return <div className='emoji'>😛</div>
+    }else if(currentMood === 'sad'){
+        return <div  className='emoji'>😒</div>
+    }else if(currentMood === 'fine'){
+        return <div  className='emoji'>🙄</div> 
     }
 
   return (
